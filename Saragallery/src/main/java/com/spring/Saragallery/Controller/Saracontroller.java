@@ -58,6 +58,11 @@ public class Saracontroller {
 	{
 		return service.sorting(artist);
 	}
+	@GetMapping("/sortingasc/{artist}")
+	public List<Saragallery> sortingAsc(@PathVariable String artist)
+	{
+		return service.sortingAsc(artist);
+	}
 	
 	@GetMapping("/pagination/{num}/{size}")
 	public List<Saragallery> pagination(@PathVariable int num,@PathVariable int size)

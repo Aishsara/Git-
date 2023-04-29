@@ -41,6 +41,11 @@ public class GalleryService {
 	{
 		return repo.findAll();
 	}
+	public String deleteById(int id)
+	{
+		repo.deleteById(id);
+		return "Deleted";
+	}
 	
 
 }

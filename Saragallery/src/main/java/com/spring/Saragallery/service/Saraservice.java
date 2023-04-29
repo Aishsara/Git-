@@ -68,6 +68,12 @@ public class Saraservice {
 		return repo.findAll(Sort.by(artist).descending());
 	}
 	
+	public List<Saragallery> sortingAsc(String artist)
+	{
+		return repo.findAll(Sort.by(artist).ascending());
+	}
+	
+	
 	public List<Saragallery> pagination(int num,int size)
 	{
 		Page<Saragallery> p = repo.findAll(PageRequest.of(num, size));
