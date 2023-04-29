@@ -3,8 +3,11 @@ package com.spring.Saragallery.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.hibernate.query.NativeQuery.ReturnableResultNode;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.spring.Saragallery.Model.Saragallery;
@@ -47,7 +50,7 @@ public class Saraservice {
 			sara.setContact(sg.getContact());
 			sara.setNoofart(sg.getNoofart());
 			sara.setPrice(sg.getPrice());
-						return repo.saveAndFlush(sara);
+			return repo.saveAndFlush(sara);
 		}
 		else {
 			return null;
@@ -59,6 +62,24 @@ public class Saraservice {
 		repo.deleteById(sno);
 		return sno+"Deleted";
 	}
+	
+	public List<Saragallery> sorting(String artist)
+	{
+		return repo.findAll(Sort.by(artist).descending());
+	}
+	
+	public List<Saragallery> pagination(int num,int size)
+	{
+		Page<Saragallery> p = repo.findAll(PageRequest.of(num, size));
+		return p.getContent();
+	}
+	
+	public List<Saragallery> pagesorting(int num,int size,String artist)
+	{
+		Page<Saragallery> p = repo.findAll(PageRequest.of(num, size,Sort.by(artist).descending()));
+		return p.getContent();
+	}
+	
 	
 	
 	
