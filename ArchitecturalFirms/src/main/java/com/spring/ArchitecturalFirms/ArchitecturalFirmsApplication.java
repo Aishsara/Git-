@@ -1,4 +1,4 @@
-package com.spring.Saragallery;
+package com.spring.ArchitecturalFirms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -11,19 +11,19 @@ import io.swagger.v3.oas.annotations.info.Info;
 
 @OpenAPIDefinition(
 		info =@Info(
-				title = "Sara Gallery",
+				title = "Architect Firm",
 				version = "1.1.2",
-				description = "ArtGallery Project",
+				description = "Firm Project",
 				contact = @Contact(
 						name = "Aishwarya",
 						email = "aishwaryas2307@gmail.com"
 						)
 				)
 		)
-public class SaragalleryApplication {
+public class ArchitecturalFirmsApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SaragalleryApplication.class, args);
+		SpringApplication.run(ArchitecturalFirmsApplication.class, args);
 	}
 
 }

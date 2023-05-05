@@ -50,6 +50,7 @@ public class Saraservice {
 			sara.setContact(sg.getContact());
 			sara.setNoofart(sg.getNoofart());
 			sara.setPrice(sg.getPrice());
+			sara.setArt(sg.getArt());
 			return repo.saveAndFlush(sara);
 		}
 		else {

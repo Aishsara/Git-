@@ -1,14 +1,12 @@
-package com.spring.Saragallery.Model;
+package com.spring.ArchitecturalFirms.ArchitectModel;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name="gallerydatabase")
-public class GalleryModel {
+public class LoginModel {
 	
 	@Id
 	@GeneratedValue(strategy =  GenerationType.AUTO)
@@ -82,7 +80,6 @@ public class GalleryModel {
 	public void setPincode(String pincode) {
 		this.pincode = pincode;
 	}
-	
 	
 	
 

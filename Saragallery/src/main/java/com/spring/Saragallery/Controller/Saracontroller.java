@@ -13,9 +13,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
 import com.spring.Saragallery.Model.Saragallery;
 import com.spring.Saragallery.repository.Sararepo;
 import com.spring.Saragallery.service.Saraservice;
+
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+
 
 @RestController
 @RequestMapping("/api")
@@ -81,6 +86,7 @@ public class Saracontroller {
 	@Autowired
 	public Sararepo repo;
 	
+	@Tag(name="Get All details",description="gets all the details")
 	@GetMapping("/query")
 	public List<Saragallery> getAll()
 	{
@@ -93,12 +99,15 @@ public class Saracontroller {
 		return repo.getD(pid);
 	}
 	
+	@Tag(name="Query Update",description=" update the id using native query")
 	@PutMapping("/queryupdate/{id}/{country}")
 	public void updateDetails(@PathVariable int id,@PathVariable String country)
 	{
 		 repo.update(id,country);
 	}
 	
+	
+	@Tag(name ="Delete Query",description="deletes all details using native query")
 	@DeleteMapping("/deletequery/{id}/{artist}")
 	public String deleteDetails(@PathVariable int id,@PathVariable String artist)
 	{
@@ -108,14 +117,50 @@ public class Saracontroller {
 	}
 	
 	
+	@DeleteMapping("/delete/{firmno}")
+	public String deleteD(@PathVariable int firmno)
+	{
+		
+		repo.delete(firmno);
+		return "Deleted Successfully";
+	}
+	
+	
 	//JQPL
 	
 	
 	@GetMapping("/jpql/{id}")
-	public List<Saragallery> get(@PathVariable int id)
+	public List<Saragallery> getAll(@PathVariable int id)
 	{
 		return repo.getDetails(id);
 	}
+	
+	
+	
+	
+	@GetMapping("/jpql/like")
+	public List<Saragallery> getHSaragalleries()
+	{
+		return repo.getH();
+	}
+	
+	
+	
+	
+	@GetMapping("/jqpl/between/{id}/{sid}")
+	public List<Saragallery> getRSaragalleries(@PathVariable int id,@PathVariable int sid)
+	{
+		return repo.getRange(id,sid);
+	}
+	
+	
+	
+	@GetMapping("/jqpl/in")
+	public List<Saragallery> getDetails()
+	{
+		return repo.getD();
+	}
+	
 	
 	
 	

@@ -1,10 +1,15 @@
 package com.spring.Saragallery.Model;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -29,6 +34,9 @@ public class Saragallery {
 	private int exhibitcount; 
 	@Column(name="no of artworks")
 	private int noofart;
+	@OneToMany(cascade = CascadeType.ALL)
+	@JoinColumn
+	private List<ArtistDetails> art;
 	public int getSno() {
 		return sno;
 	}
@@ -98,11 +106,18 @@ public class Saragallery {
 	public void setNoofart(int noofart) {
 		this.noofart = noofart;
 	}
+
+	public List<ArtistDetails> getArt() {
+		return art;
+	}
+	public void setArt(List<ArtistDetails> art) {
+		this.art = art;
+	}
 	@Override
 	public String toString() {
 		return "Saragallery [sno=" + sno + ", artname=" + artname + ", artist=" + artist + ", price=" + price
 				+ ", contact=" + contact + ", country=" + country + ", arttype=" + arttype + ", artsize=" + artsize
-				+ ", exhibitcount=" + exhibitcount + ", noofart=" + noofart + "]";
+				+ ", exhibitcount=" + exhibitcount + ", noofart=" + noofart + ", art=" + art + "]";
 	}
 	
 	

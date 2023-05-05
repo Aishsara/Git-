@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 
 import com.spring.Saragallery.MovieModel.Movie;
 @Repository
-public class MovieRepo implements JpaRepository<Movie, Integer> {
+public abstract class MovieRepo implements JpaRepository<Movie, Integer> {
 
 }

@@ -1,44 +1,25 @@
 package com.spring.Saragallery.Model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name="gallerydatabase")
-public class GalleryModel {
+
+public class ArtistDetails {
 	
 	@Id
-	@GeneratedValue(strategy =  GenerationType.AUTO)
-	private int id;
-	private String username;
-	private String password;
+	private int artist_id;
 	private String firstname;
 	private String lastname;
 	private String birthdate;
 	private String contact;
 	private String address;
 	private String city;
-	private String pincode;
-	public int getId() {
-		return id;
+	public int getArtist_id() {
+		return artist_id;
 	}
-	public void setId(int id) {
-		this.id = id;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setArtist_id(int artist_id) {
+		this.artist_id = artist_id;
 	}
 	public String getFirstname() {
 		return firstname;
@@ -76,13 +57,6 @@ public class GalleryModel {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getPincode() {
-		return pincode;
-	}
-	public void setPincode(String pincode) {
-		this.pincode = pincode;
-	}
-	
 	
 	
 
