@@ -35,7 +35,7 @@ public class Saragallery {
 	@Column(name="no of artworks")
 	private int noofart;
 	@OneToMany(cascade = CascadeType.ALL)
-	@JoinColumn
+		@JoinColumn
 	private List<ArtistDetails> art;
 	public int getSno() {
 		return sno;

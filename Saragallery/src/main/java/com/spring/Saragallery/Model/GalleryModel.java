@@ -1,5 +1,7 @@
 package com.spring.Saragallery.Model;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -8,6 +10,7 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table(name="gallerydatabase")
+@CrossOrigin
 public class GalleryModel {
 	
 	@Id
@@ -17,11 +20,10 @@ public class GalleryModel {
 	private String password;
 	private String firstname;
 	private String lastname;
-	private String birthdate;
+	private String email;
 	private String contact;
 	private String address;
 	private String city;
-	private String pincode;
 	public int getId() {
 		return id;
 	}
@@ -52,12 +54,7 @@ public class GalleryModel {
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
 	}
-	public String getBirthdate() {
-		return birthdate;
-	}
-	public void setBirthdate(String birthdate) {
-		this.birthdate = birthdate;
-	}
+	
 	public String getContact() {
 		return contact;
 	}
@@ -76,11 +73,12 @@ public class GalleryModel {
 	public void setCity(String city) {
 		this.city = city;
 	}
-	public String getPincode() {
-		return pincode;
+	
+	public String getEmail() {
+		return email;
 	}
-	public void setPincode(String pincode) {
-		this.pincode = pincode;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 	
