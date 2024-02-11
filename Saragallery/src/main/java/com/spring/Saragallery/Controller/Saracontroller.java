@@ -45,7 +45,7 @@ public class Saracontroller {
 	public Saragallery create(@RequestBody Saragallery sg)
 	{
 		return service.addSaragallery(sg);
-		}
+	}
 	
 	@PutMapping("/{sno}")
 	public Saragallery update(@RequestBody Saragallery sg,@PathVariable int sno){
